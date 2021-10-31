@@ -1,59 +1,51 @@
 const inventory = newInventory()
 move(inventory).to(0, 0)
 
-const character = newImage('assets/green-character/static.gif')
-move(character).withArrowKeys(100, 250)
+// const character = newImage('assets/green-character/static.gif')
+// move(character).withArrowKeys(100, 250)
 
 //Variable to keep track the current position of the character
 const character = newImage('assets/green-character/static.gif')
 
+function handleDirectionChange(diretion) {
+    if (direction === null){
+            character.src = 'assets/green-character/static.gif'
+        }
+        if(direction === 'west'){
+            character.src = 'assets/green-character/west.gif'
+        }
+        if(direction === 'north'){
+            character.src = 'assets/green-character/north.gif'
+        }
+        if(direction === 'east'){
+            character.src = 'assets/green-character/east.gif'
+        }
+        if(direction === 'south'){
+            character.src = 'assets/green-character/south.gif'
+        }
+    }
+    
+    move(character).withArrowKeys(100, 250, handleDirectionChange)
 
-// let direction = null;
-// let x = 100;
-// let y = 250;
+//Adding the grass and sky (using functions) (Bonus)
+function tile (url, top, bottom, width, height){
+    for(let h = 0; h < height; h++){
+        for(let w = 0; w < width; w++){
+            newImage(url, top + w*50, bottom+h*100)
+        }
+    }
+}
 
-// Using the setInterval function used as a callback to display how the character moves
-// setInterval(function() {
-//     if (direction === 'west')
-//     {
-//         x = x - 1
-//     } if (direction === 'east')
-//     {
-//         x = x + 1
-//     } if (direction === 'north')
-//     {
-//         y = y + 1
-//     } if (direction === 'south');
-//     {
-//         y = y - 1
-//     }
-//     character.style.left = x + 'px'
-//     character.style.bottom = y + 'px'
-// }, 1)
+let GrassHeight = window.innerHeight
+let SkyHeight = window.innerHeight
 
-// // Changing the direction of character with arrow keys
-// document.addEventListener('keydown', function(e){
-//     if (e.repeat) return;
-//     if (e.key = 'ArrowUp') {
-//         direction = 'north'
-//     } 
-//     if (e.key = 'ArrowDown') {
-//         direction = 'south'
-//     } 
-//     if (e.key = 'ArrowRight') {
-//         drection = 'east'
-//     } 
-//     if (e.key = 'ArrowLeft') {
-//         direction = 'west'
-//     }
-// }) 
+tile('assets/sky.png', 0, 0, window.innerWidth/100, SkyHeight/390)
+tile('assets/grass.png', 0, 0, window.innerWidth/108, GrassHeight/193)
 
-// document.addEventListener('keyup', fucntion(e) {
-//     direction = null
-// })
+newImage('.assets/sky.png',0,0)
+newImage('.assets/grass.png', 0, 0)
 
-
-(newImage('assets/tree.png')).to(200, 450)
+move(newImage('assets/tree.png')).to(200, 450)
 move(newImage('assets/pillar.png')).to(350, 250)
 move(newImage('assets/pine-tree.png')).to(450, 350)
 move(newImage('assets/crate.png')).to(150, 350)
