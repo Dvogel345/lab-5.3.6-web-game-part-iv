@@ -11,10 +11,5 @@ function move(element) {
     }
 }
 
-//Variable to keep track the current position of the character
-const character = newImage('assets/green-character/static.gif')
-let direction = null;
-let x = 100;
-let y = 250;
-move(character).to(100, 250)
+
 

@@ -4,8 +4,31 @@ move(inventory).to(0, 0)
 const character = newImage('assets/green-character/static.gif')
 move(character).to(100, 250)
 
+//Variable to keep track the current position of the character
+const character = newImage('assets/green-character/static.gif')
+let direction = null;
+let x = 100;
+let y = 250;
 
-move(newImage('assets/tree.png')).to(200, 450)
+function moveCharacter(){
+    if (direction === 'west')
+    {
+        x = x - 1
+    } if (direction === 'east')
+    {
+        x = x + 1
+    } if (direction === 'north')
+    {
+        y = y + 1
+    } if (direction === 'south');
+    {
+        y = y - 1
+    }
+    character.style.left = x + 'px'
+    character.style.bottom = y + 'px'
+}
+
+move(character).to(100, 250)(newImage('assets/tree.png')).to(200, 450)
 move(newImage('assets/pillar.png')).to(350, 250)
 move(newImage('assets/pine-tree.png')).to(450, 350)
 move(newImage('assets/crate.png')).to(150, 350)

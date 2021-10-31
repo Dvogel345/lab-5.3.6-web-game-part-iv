@@ -4,3 +4,6 @@ function newImage(url){
     document.body.append(image)
     return image
 }
+
+
+
