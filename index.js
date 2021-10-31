@@ -10,7 +10,8 @@ let direction = null;
 let x = 100;
 let y = 250;
 
-function moveCharacter(){
+// Using the setInterval function used as a callback to display how the character moves
+setInterval(function() {
     if (direction === 'west')
     {
         x = x - 1
@@ -26,7 +27,24 @@ function moveCharacter(){
     }
     character.style.left = x + 'px'
     character.style.bottom = y + 'px'
-}
+}, 1)
+
+// Changing the direction of character with arrow keys
+document.addEventListener('keydown', function(e){
+    if (e.repeat) return;
+    if (e.key = 'ArrowUp') {
+        direction = 'north'
+    } 
+    if (e.key = 'ArrowDown') {
+        direction = 'south'
+    } 
+    if (e.key = 'ArrowRight') {
+        drection = 'east'
+    } 
+    if (e.key = 'ArrowLeft') {
+        direction = 'west'
+    }
+}) 
 
 move(character).to(100, 250)(newImage('assets/tree.png')).to(200, 450)
 move(newImage('assets/pillar.png')).to(350, 250)
