@@ -29,6 +29,7 @@ function move(element) {
             }
             element.style.left = x + 'px'
             element.style.bottom = y + 'px'
+            element.style.zIndex = 6;
         }
         setInterval(moveCharacter, 1)
 
