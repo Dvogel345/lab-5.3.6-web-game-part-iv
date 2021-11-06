@@ -36,6 +36,8 @@ function tile (url, top, bottom, width, height){
     }
 }
 
+// Added background omagery to make the game look nice
+
 let GrassHeight = window.innerHeight
 let SkyHeight = window.innerHeight
 
